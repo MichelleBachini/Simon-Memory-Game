@@ -1,1 +1,12 @@
-alert("Working");
+let buttonColors = ["red", "blue", "green", "yellow"];
+
+let gamePattern = [];
+
+function nextSequence() {
+    let randomNumber = Math.floor(Math.random() * 4);
+    console.log(randomNumber);
+    let randomChosenColor = buttonColors[randomNumber];
+    console.log(randomChosenColor);
+    gamePattern.push(randomChosenColor);
+    console.log(gamePattern);
+};
