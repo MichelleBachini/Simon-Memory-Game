@@ -6,21 +6,22 @@ let userClickedPattern = [];
 
 function nextSequence() {
     let randomNumber = Math.floor(Math.random() * 4);
-
     let randomChosenColor = buttonColors[randomNumber];
-
     gamePattern.push(randomChosenColor);
-
     // use jQuery to select button using id# #color .animation
     $("#" + randomChosenColor).fadeIn(100).fadeOut(100).fadeIn(100);
-
-    // attaches specific audio clip to the button color let audio
-    let audio = new Audio("sounds/" + randomChosenColor + ".mp3");
+    playSound(randomChosenColor);
 
 };
 
-$(".btn").click() {
+// user clicks
+$(".btn").click(function() {
     let userChosenColor = $(this).attr("id");
     userClickedPattern.push(userChosenColor);
-    console.log(userClickedPattern);
-};
+    playSound(userChosenColor);
+});
+
+function playSound(name) {
+    let audio = new Audio("sounds/" + name + ".mp3");
+    audio.play();
+}
